@@ -1,0 +1,21 @@
+
+<div class="d-grid gap-2">
+      <button class="btn btn-secondary rounded-0"  type="button">ADD</button>
+  </div>
+<div>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>Date of some </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of dateMap | keyvalue" (click)="exersiseOfDay(item.key)">
+                <th>
+                    {{item.key | date:"d/MMMM/y"}}
+                </th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-exersise [exersise]="listOfExersise"></app-exersise>

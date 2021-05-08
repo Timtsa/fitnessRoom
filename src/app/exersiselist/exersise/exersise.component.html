@@ -1,0 +1,31 @@
+
+<div>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>Дата тренировки </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of exersise">
+                <th>
+                    {{item.exersise}}
+                </th>
+                <th color="red">
+                    {{item.firstApproach}} || {{item.firstWeight}}
+                </th>
+                <th>
+                    {{item.secondApproach}} || {{item.secondWeight}}
+                </th>
+                <th>
+                    {{item.thirdtApproach}} || {{item.thirdtweight}}
+                </th>
+                <th>
+                    {{item.fourthtApproach}} || {{item.fourthtweight}}
+                </th>
+               
+
+        </tbody>
+    </table>
+</div>
+<app-addexersise></app-addexersise>

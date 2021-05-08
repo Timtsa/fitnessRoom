@@ -1,0 +1,76 @@
+<p>addexersise works!</p>
+<form>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Exersise</label>
+        <select class="custom-select" [(ngModel)]="exersise.exersise" name="exersise">
+            <option selected>Choose...</option>
+            <option *ngFor="let exerName of exersiseName">{{exerName.exersise}}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Дата</label>
+        <input type="date" class="form-control" [(ngModel)]="exersise.date" name="date">
+
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Первый подход</div>
+            </div>
+            <input type="number" class="form-control" placeholder="Last name" [(ngModel)]="exersise.firstApproach"
+                name="firstApproach">
+        </div>
+        <div class="col">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Вес</div>
+            </div>
+            <input type="number" class="form-control" [(ngModel)]="exersise.firstWeight" name="firstWeight">
+        </div>
+    </div>
+    <div class="row">       
+        <div class="col">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Второй подход </div>
+              </div>
+            <input type="number" class="form-control" [(ngModel)]="exersise.secondApproach" name="secondApproach">
+        </div>
+        <div class="col">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Вес</div>
+              </div>
+            <input type="number" class="form-control" [(ngModel)]="exersise.secondWeight" name="secondWeight">
+        </div>
+    </div>
+    <div class="row">    
+        
+        <div class="col">         
+            <div class="input-group-prepend">
+                <div class="input-group-text">Третий подход</div>
+              </div>
+            <input type="number" class="form-control" [(ngModel)]="exersise.thirdtApproach" name="thirdtApproach">
+        </div>
+        <div class="col">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Вес</div>
+              </div>
+            <input type="number" class="form-control" [(ngModel)]="exersise.thirdtweight" name="thirdtweight">
+        </div>
+    </div>
+    <div class="row">      
+        <div class="col">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Четвёртый подход</div>
+              </div>
+            <input type="number" class="form-control" [(ngModel)]="exersise.fourthtApproach" name="fourthtApproach">
+        </div>
+        <div class="col">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Вес</div>
+              </div>
+            <input type="number" class="form-control" [(ngModel)]="exersise.fourthtweight" name="fourthtweight">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="saveExersise()">Submit</button>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+</form>
