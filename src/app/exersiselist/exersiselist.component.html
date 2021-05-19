@@ -1,6 +1,6 @@
 
 <div class="d-grid gap-2">
-      <button class="btn btn-secondary rounded-0"  type="button">ADD</button>
+      <button class="btn btn-secondary rounded-0"  type="button" (click)="openThisForm()">ADD</button>
   </div>
 <div>
     <table class="table table-dark table-hover">
@@ -18,4 +18,10 @@
         </tbody>
     </table>
 </div>
-<app-exersise [exersise]="listOfExersise"></app-exersise>
+<div *ngIf="listOfExersise">
+    <app-exersise [exersise]="listOfExersise" ></app-exersise>
+</div>
+<div *ngIf="openForm">
+   <app-addexersise  (onChanged)="closeThisForm()"></app-addexersise>
+
+</div>
