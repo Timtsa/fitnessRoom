@@ -10,7 +10,7 @@ import { SharedService } from '../../../shared.service';
 })
 export class AddexersiseComponent implements OnInit {
   exersise: IExersise = {
-    id: 0, 
+    id: 0,
     date: new Date,
     exersise: "",
     firstApproach: 0,
@@ -22,10 +22,12 @@ export class AddexersiseComponent implements OnInit {
     thirdtweight: 0,
     fourthtweight: 0
   };
-  // @Input() ExersiseForForm: IExersise[]=[];
+
+  @Input() ExersiseForForm: IExersise[] = [];
   exersiseName: INameExersise[] = [];
   addexersiseName: INameExersise = { id: 0, exersise: '' };
   addSelection: boolean = false;
+  lastTimeexersise: IExersise =this.exersise;
   constructor(private servise: SharedService) { }
   @Output() onChanged = new EventEmitter<boolean>();
   change() {
@@ -51,8 +53,10 @@ export class AddexersiseComponent implements OnInit {
   }
 
   addExersiseName() {
+   
     let ex = this.addexersiseName;
-    if (!this.exersiseName.find(item => item.exersise == ex.exersise)) {
+
+    if (!this.exersiseName.find(item => item.exersise == ex.exersise)&& ex.exersise.trim()=="") {
       this.servise.AddExersiseName(ex).subscribe(res => {
         if (res)
           this.getExersiseName();
@@ -62,10 +66,24 @@ export class AddexersiseComponent implements OnInit {
     this.addSelection = false;
 
   }
-  addSelect(){
-    this.addSelection=true
+  addSelect() {
+    this.addSelection = true//?
   }
+  selectedForm(value) {
 
+    console.log("ExersiseName " + this.ExersiseForForm.length);
+    console.log(this.ExersiseForForm.filter(f => f.exersise == value));
+   
+   var tempArr = this.ExersiseForForm.filter(f => f.exersise == value)
+   if(tempArr.length>0)
+   this.lastTimeexersise=tempArr
+      .reduce((mostRecent, item) =>
+        item.date > mostRecent.date ? item : mostRecent )
+    // console.log(this.lastTimeexersise)
+    if (this.lastTimeexersise == undefined)
+      this.lastTimeexersise = this.exersise;
+    console.log(this.lastTimeexersise)
+  }
 }
 
 

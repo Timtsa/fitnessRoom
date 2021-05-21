@@ -22,6 +22,6 @@
     <app-exersise [exersise]="listOfExersise" ></app-exersise>
 </div>
 <div *ngIf="openForm">
-   <app-addexersise  (onChanged)="closeThisForm()"></app-addexersise>
-
+   <app-addexersise  [ExersiseForForm]="ExersiseList"  (onChanged)="closeThisForm()"></app-addexersise>
+   
 </div>
